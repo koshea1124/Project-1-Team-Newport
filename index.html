@@ -5,28 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 1 - Team Newport</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <nav class="nav-extended cyan darken-4">
-        <div class="nav-wrapper">
-          <a class="brand-logo">What Day Is It?</a>
-        </div>
-        <div class="nav-content">
-          <ul class="tabs tabs-transparent">
-            <li class="tab"><a href="#test1">Date</a></li>
-            <li class="tab"><a class="active" href="#test2">Goals</a></li>
-            <li class="tab disabled"><a href="#test3">Tracking</a></li>
-            <li class="tab"><a href="#test4">Nutrition</a></li>
-          </ul>
-        </div>
-      </nav>
+    <header>
+        <nav class="nav-extended cyan darken-4">
+            <div class="nav-wrapper">
+                <a class="brand-logo">What Day Is It?</a>
+            </div>
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a href="#test1">Date</a></li>
+                    <li class="tab"><a class="active" href="#test2">Goals</a></li>
+                    <li class="tab disabled"><a href="#test3">Tracking</a></li>
+                    <li class="tab"><a href="#test4">Nutrition</a></li>
+                </ul>
+             </div>
+        </nav>
+    </header>
     
- <!-- Page Layout here -->
-    <div class="row">
+ <!-- Page Layout-->
 
-      <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
+    <section class="row">
+        <!--Responsive layout using Materialize grid layout-->
+        <div class="col s12 m4 l3">
         <div id="test1" class="col s4">DATEPICKER</div>
             <form>
                 <div class='input-field'>
@@ -36,12 +40,124 @@
       </div>
 
       <div class="col s12 m8 l9 blue-grey darken-4" class="iframe-container">
+        <div class="criteria-container">
+            <h2>Muscle Group</h2>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='back' data-category='muscle-group' class="check-box" type="checkbox" />
+                        <span class="check-box-text">Back</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='arms' data-category='muscle-group' class="check-box" type="checkbox" />
+                        <span class="check-box-text">Arms</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='chest' data-category='muscle-group'class="check-box" type="checkbox" />
+                        <span class="check-box-text">Chest</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='Abs' data-category='muscle-group'class="check-box" type="checkbox" />
+                        <span class="check-box-text">Abs</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='legs' data-category='muscle-group'class="check-box" type="checkbox" />
+                        <span class="check-box-text">Legs</span>
+                    </label>
+                    </p>
+            <h2> Type of Workout</h2>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='weights' data-category='workout-type' muscle-group' name="group1" class="with-gap" type="radio" />
+                        <span class="check-box-text">Weights</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='yoga' data-category='workout-type' name="group1" class="with-gap" type="radio" />
+                        <span class="check-box-text">Yoga</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='cardio' data-category='workout-type' name="group1" class="with-gap" type="radio" />
+                        <span class="check-box-text">Cardio</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='meditation' data-category='workout-type' name="group1" class="with-gap" type="radio" />
+                        <span class="check-box-text">Meditation</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='recovery' data-category='workout-type' name="group1" class="with-gap" type="radio" />
+                        <span class="check-box-text">Recovery</span>
+                    </label>
+                    </p>
+             <h2>Duration</h2>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='15' data-category='workout-length'name="group2" class="with-gap" type="radio" />
+                        <span class="check-box-text">Less than 15 minutes</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='30' data-category='workout-length'name="group2" class="with-gap" type="radio" />
+                        <span class="check-box-text">16-30 minutes</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='45' data-category='workout-length' name="group2" class="with-gap" type="radio" />
+                        <span class="check-box-text">31-45 minutes</span>
+                    </label>
+                    </p>
+                <form action="#">
+                    <p>
+                    <label>
+                        <input value='60' data-category='workout-length'name="group2" class="with-gap" type="radio" />
+                        <span class="check-box-text">46-60 minutes</span>
+                    </label>
+                    </p>
+                
+        </div>
+        <div> 
+            <h2 class='video-header'>Video of the Day</h2>
+        </div>
         <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/0L8cQ9nRtuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0L8cQ9nRtuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="button-container">
+            <a class="waves-effect waves-light btn-large light-blue darken-4"><i class="material-icons left">arrow_back</i>Prev</a>
+            <a class="waves-effect waves-light btn-large light-blue darken-4"><i class="material-icons right">arrow_forward</i>Next</a>       
+        </div>
       </div>
 
-    </div>
+
+    </section>
           
       <!--<div id="test1" class="col s4">DATEPICKER</div>
       <form>
