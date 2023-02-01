@@ -28,6 +28,10 @@ h2 {
     padding: 10px;
 }
 
+.check-box-text {
+    margin-left: 10px;
+}
+
 #search-criteria {
    /* display: none;*/
     display: flex;
@@ -43,7 +47,6 @@ h2 {
     margin-top: 20px;
     margin: 1px;
     flex: 1 0 100%;
-    text-align: center;
     /*todo: transition*/
 }
 

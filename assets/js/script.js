@@ -4,13 +4,29 @@ var videoList = document.querySelector('.video-container')
 var videoContainer = document.querySelector('video-container')
 var wgerContainer = document.querySelector('.wger-container')
 var baseYouTubeUrl = 'https://www.youtube.com/watch?v='
+var weightButton = document.getElementById('weight-button')
+var goalWeightEl = document.getElementById('goal-weight')
+var inputWeightEl = document.getElementById('user-weight')
 
-// when button is clicked a total of five workout videos  will appear and be embedded on the page to bypass admin firewalls if necessary and give user the option to click next or previous to cycle through the 5 videos and with what body xone is picked it will add that to the end of the randomization que for the rest of the week 
-// an array of the 5 body zones should be made with also 2 rest days 
-//  arms legs chest back cardio and 2 rest days 
-// utilize local storage to rember what was randomly picked the day before so that zone will not be targeted 2 days in a row 
-// 
-
+function getLocalStorage (){
+    var userWeight = JSON.parse(localStorage.getItem('input-weight'));
+    return userWeight;
+}
+function printWeight (){
+    goalWeightEl.innerHTML = ''
+    var storedWeight = getLocalStorage();
+    var weightEl = document.createElement('h3')
+    weightEl.textContent = storedWeight
+    goalWeightEl.appendChild(weightEl)
+    inputWeightEl.value = ''
+}
+weightButton.addEventListener("click", function(e){
+   e.preventDefault()
+    var inputWeight = inputWeightEl.value
+    console.log(inputWeight);
+    localStorage.setItem('input-weight', JSON.stringify(inputWeight))
+    printWeight();
+});
 
 function getApi() {
     var requestUrl = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=workout&type=video&key=AIzaSyBXboQ45fZexXG4TsEN7gPkwLZrXpfQQIs';
@@ -22,7 +38,6 @@ function getApi() {
             return response.json();
         })
         .then(function (data) {
-            console.log(data.items);
             //looping thru fetch responses
             for (var i = 0; i < data.items.length; i++) {
                 var searchResult = data.items[i];
@@ -62,5 +77,6 @@ function getApi2 () {
         }
         })
     }
+printWeight ();
 submitEl.addEventListener('click', getApi);
 submitEl.addEventListener('click', getApi2);
