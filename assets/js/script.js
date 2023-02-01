@@ -1,7 +1,8 @@
 var submitEl = document.querySelector('#submit-button')
 var searchEl = document.querySelector('#search-criteria')
-var videoList = document.querySelector('.video-links')
-var videoContainer = document.getElementById('video-container')
+var videoList = document.querySelector('.video-container')
+var videoContainer = document.querySelector('video-container')
+var wgerContainer = document.querySelector('.wger-container')
 var baseYouTubeUrl = 'https://www.youtube.com/watch?v='
 
 // when button is clicked a total of five workout videos  will appear and be embedded on the page to bypass admin firewalls if necessary and give user the option to click next or previous to cycle through the 5 videos and with what body xone is picked it will add that to the end of the randomization que for the rest of the week 
@@ -26,15 +27,40 @@ function getApi() {
             for (var i = 0; i < data.items.length; i++) {
                 var searchResult = data.items[i];
                 var searchResultId = searchResult.id.videoId
+                var listItem = document.createElement('li');
                 var youTubeLinkEl = document.createElement('a');
                 youTubeLinkEl.href = baseYouTubeUrl + searchResultId
                 youTubeLinkEl.textContent = baseYouTubeUrl + searchResultId
-                console.log(youTubeLinkEl)
-                videoContainer.append(youTubeLinkEl)
-               // var id = data[i].id.videoId
-                //videoIds.textContent = data[i].id.videoId;
-                //videoContainer.appendChild(videoIds);
+                listItem.append(youTubeLinkEl);
+                videoList.append(listItem);
+               
             }
         })
 }
+
+function getApi2 () {
+    var requestUrl2 = 'https://wger.de/api/v2/equipment/';
+
+    fetch(requestUrl2, {
+        method: "GET",
+        headers: {
+          "Authorization": "Token " + "dfb13c13d89ad44c777ff2716bf1fc3b51b70992"
+        }
+      })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data.results);
+            for (var i =0; i < data.results.length; i++) {
+                var searchResult2 = data.results[i];
+                var searchResultId2 = searchResult2.name
+                var listItem2 =document.createElement('li');
+                listItem2.textContent = searchResultId2
+                wgerContainer.append(listItem2);   
+            
+        }
+        })
+    }
 submitEl.addEventListener('click', getApi);
+submitEl.addEventListener('click', getApi2);
